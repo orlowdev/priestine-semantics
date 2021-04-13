@@ -1,7 +1,15 @@
 /**
- * CommitInterface describes the commit entity stored in SemanticsIntermediate.commitsSinceLatestVersion array.
+ * ICommitAuthor describes the commit author entity.
  */
-export interface CommitInterface {
+export interface ICommitAuthor {
+  name: string;
+  email: string;
+}
+
+/**
+ * ICommit describes the commit entity stored in ISemanticsIntermediate.commitsSinceLatestVersion array.
+ */
+export interface ICommit {
   /**
    * Full commit hash.
    */
@@ -15,10 +23,7 @@ export interface CommitInterface {
   /**
    * Commit author.
    */
-  author: {
-    name: string;
-    email: string;
-  };
+  author: ICommitAuthor;
 
   /**
    * Commit description (the one that goes after colon on the first line of the commit).

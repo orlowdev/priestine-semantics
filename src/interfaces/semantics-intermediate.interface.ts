@@ -1,12 +1,11 @@
-import { ConfigInterface } from './config.interface';
-import { CommitInterface } from './commit.interface';
-import { IntermediateInterface } from '@priestine/pipeline';
+import { IConfig } from "./config.interface";
+import { ICommit } from "./commit.interface";
 
 /**
- * SemanticsIntermediate describes internal properties that @priestine/semantics creates and uses
+ * ISemanticsIntermediate describes internal properties that @priestine/semantics creates and uses
  * internally during its execution. These values cannot be set from outside or overriden.
  */
-export interface SemanticsIntermediate extends ConfigInterface {
+export interface ISemanticsIntermediate extends IConfig {
   /**
    * Hash of current commit.
    */
@@ -25,7 +24,7 @@ export interface SemanticsIntermediate extends ConfigInterface {
   /**
    * Array of commits found since latest version was released.
    */
-  commitsSinceLatestVersion: CommitInterface[];
+  commitsSinceLatestVersion: ICommit[];
 
   /**
    * String containing commits found since latest version was released.
@@ -48,8 +47,3 @@ export interface SemanticsIntermediate extends ConfigInterface {
    */
   tagMessageContents: string;
 }
-
-/**
- * Shortcut type for defining middleware argument type within @priestine/semantics.
- */
-export type SemanticsCtx = IntermediateInterface<SemanticsIntermediate>;
